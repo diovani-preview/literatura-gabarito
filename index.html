@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+ <meta name="theme-color" content="#07101d">
+ <meta
+  name="description"
+  content="Literatura Infantojuvenil e Filosofia — quatro desafios educativos com imagens,
+verdadeiro ou falso e autores."
+ >
+
+ <title>Literatura Infantojuvenil — Quatro Desafios</title>
+
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+ <div class="ambient ambient-one" aria-hidden="true"></div>
+ <div class="ambient ambient-two" aria-hidden="true"></div>
+ <div class="ambient ambient-three" aria-hidden="true"></div>
+
+ <div id="preloader" class="preloader" role="status" aria-live="polite">
+  <div class="preloader-card">
+   <div class="book-loader" aria-hidden="true">✦</div>
+   <p class="eyebrow">PREPARANDO A JORNADA</p>
+   <h2>Carregando imagens e desafios...</h2>
+
+   <div class="loading-track" aria-hidden="true">
+    <span id="loadingBar"></span>
+   </div>
+
+   <p id="loadingText">0 de 12 recursos preparados</p>
+  </div>
+ </div>
+
+ <main class="app">
+
+  <!-- ==================================================
+      TELA INICIAL
+  =================================================== -->
+
+  <section
+   id="homeScreen"
+   class="screen home-screen"
+   aria-labelledby="mainTitle"
+>
+ <div class="home-shell">
+
+  <header class="hero">
+
+   <div class="hero-copy">
+    <p class="eyebrow">
+     LITERATURA, IMAGEM E CONHECIMENTO
+    </p>
+
+    <h1 id="mainTitle">
+     LITERATURA INFANTOJUVENIL
+     <span>QUATRO DESAFIOS INTERATIVOS</span>
+    </h1>
+
+    <p class="subtitle">
+     Histórias, escolhas e perguntas sobre a vida
+    </p>
+
+    <p class="hero-text">
+     Explore dez obras brasileiras e internacionais.
+     Escolha uma atividade, observe as imagens e teste
+     seus conhecimentos sobre ideias, autores e
+     acontecimentos literários.
+    </p>
+   </div>
+
+   <figure class="hero-art">
+    <img
+      id="heroImage"
+      src="capa.jpg"
+      alt="Livro aberto com caminhos e elementos luminosos"
+      width="960"
+      height="540"
+    >
+
+    <figcaption>
+      10 obras • 10 autores • 4 formas de aprender
+    </figcaption>
+   </figure>
+
+  </header>
+
+  <section
+   class="mode-grid"
+   aria-label="Escolha uma atividade"
+  >
+<button
+ class="mode-card mode-drag"
+ type="button"
+ data-mode="drag"
+>
+ <span class="mode-number">01</span>
+ <span class="mode-icon" aria-hidden="true">↔</span>
+
+ <strong>ARRASTE A INFORMAÇÃO</strong>
+
+ <span>
+  Observe cada imagem e arraste a ideia que melhor
+  representa a obra.
+ </span>
+
+ <small>
+  Também funciona por toque no celular.
+ </small>
+</button>
+
+<button
+ class="mode-card mode-truefalse"
+ type="button"
+ data-mode="truefalse"
+>
+ <span class="mode-number">02</span>
+ <span class="mode-icon" aria-hidden="true">✓?</span>
+
+ <strong>VERDADEIRO OU FALSO</strong>
+
+ <span>
+  Abra a imagem, leia uma informação sobre a obra
+  e escolha a resposta.
+ </span>
+
+ <small>
+  Uma pergunta para cada obra.
+ </small>
+</button>
+
+<button
+ class="mode-card mode-author"
+ type="button"
+ data-mode="author"
+>
+ <span class="mode-number">03</span>
+ <span class="mode-icon" aria-hidden="true">Aa</span>
+    <strong>RELACIONE AUTOR E OBRA</strong>
+
+    <span>
+     Arraste cada autor para a obra correspondente
+     e complete os pares.
+    </span>
+
+    <small>
+     Duas rodadas com cinco relações.
+    </small>
+   </button>
+
+   <button
+    class="mode-card mode-memory"
+    type="button"
+    data-mode="memory"
+   >
+    <span class="mode-number">04</span>
+    <span class="mode-icon" aria-hidden="true">◐◑</span>
+
+    <strong>JOGO DA MEMÓRIA</strong>
+
+    <span>
+     Vire as cartas e encontre os pares das dez obras
+     ilustradas no livro mágico.
+    </span>
+
+    <small>
+     20 cartas • 10 pares para descobrir.
+    </small>
+   </button>
+
+  </section>
+ </div>
+</section>
+
+<!-- ==================================================
+    TELA DOS DESAFIOS
+=================================================== -->
+
+<section
+ id="gameScreen"
+ class="screen game-screen"
+ hidden
+ aria-labelledby="gameTitle"
+>
+ <header class="topbar">
+ <div class="topbar-title">
+  <p id="modeEyebrow" class="eyebrow">
+   DESAFIO LITERÁRIO
+  </p>
+
+  <h2 id="gameTitle">
+   Título do desafio
+  </h2>
+ </div>
+
+ <div class="topbar-actions">
+
+  <div class="score-chip" aria-live="polite">
+   <span>Pontos</span>
+   <strong id="scoreText">0</strong>
+  </div>
+
+  <button
+   id="restartButton"
+   class="button button-secondary"
+   type="button"
+  >
+   ↻ Reiniciar
+  </button>
+
+  <button
+   id="homeButton"
+   class="button button-secondary"
+   type="button"
+  >
+   ⌂ Início
+  </button>
+
+ </div>
+</header>
+
+<div class="progress-area">
+
+ <div class="progress-copy">
+  <span id="progressLabel">
+   Questão 1 de 10
+  </span>
+
+  <strong id="progressPercent">
+   10%
+  </strong>
+ </div>
+  <div
+   class="progress-track"
+   role="progressbar"
+   aria-label="Progresso da atividade"
+   aria-valuemin="0"
+   aria-valuemax="100"
+   aria-valuenow="0"
+  >
+   <span id="progressBar"></span>
+  </div>
+
+ </div>
+
+ <section
+  id="activityArea"
+  class="activity-area"
+  aria-live="polite"
+ ></section>
+</section>
+
+<!-- ==================================================
+    TELA DE RESULTADO
+=================================================== -->
+
+<section
+ id="resultScreen"
+ class="screen result-screen"
+ hidden
+ aria-labelledby="resultTitle"
+>
+ <div class="result-card">
+
+  <div
+   id="resultSymbol"
+   class="result-symbol"
+   aria-hidden="true"
+  >
+   ✦
+  </div>
+
+  <p class="eyebrow">
+   ATIVIDADE CONCLUÍDA
+  </p>
+
+  <h2 id="resultTitle">
+   Resultado
+  </h2>
+   <p
+    id="resultMessage"
+    class="result-message"
+   ></p>
+
+   <div class="result-stats">
+
+    <article>
+     <span>Pontuação</span>
+     <strong id="resultScore">0/10</strong>
+    </article>
+
+    <article>
+     <span>Aproveitamento</span>
+     <strong id="resultPercent">0%</strong>
+    </article>
+
+    <article>
+     <span>Nível</span>
+     <strong id="resultLevel">Em construção</strong>
+    </article>
+
+   </div>
+
+   <div class="result-actions">
+
+    <button
+     id="playAgainButton"
+     class="button button-primary"
+     type="button"
+    >
+     JOGAR NOVAMENTE
+    </button>
+
+    <button
+     id="chooseModeButton"
+     class="button button-light"
+     type="button"
+    >
+     ESCOLHER OUTRO DESAFIO
+    </button>
+
+   </div>
+  </div>
+ </section>
+
+</main>
+ <div
+  id="toast"
+  class="toast"
+  role="status"
+  aria-live="polite"
+  hidden
+ ></div>
+
+ <script src="script.js"></script>
+</body>
+</html>
